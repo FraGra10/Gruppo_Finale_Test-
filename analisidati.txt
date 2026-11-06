@@ -1,0 +1,79 @@
+
+Fase 1. Definizione di una classe padre "Libro" con attributi ottenuti dal file CSV books.csv 
+
+La classe padre avrà come attributi: titolo del libro, autore, anno di pubblicazione, genere, sezione, lingua, numero di pagine, prezzo,
+copie totali.
+
+La classe padre avrà come metodi: 
+borrow(), return_copy(), 
+available_copies(), 
+is_available(),
+loan_days (durata del prestito)
+daily_late_fee (penale giornaliera)
+is_loanable()
+
+Le classi figlie saranno definite in base ai valori di "sezione" ottenute da file csv. 
+
+
+#Definizione della classe Scaffale 
+
+La classe scaffale creerà una lista di oggetti di tipo Libro e li posizionerà in base al volume, al numero di scaffale e alla riga.
+Informazioni contenute in parte nel file csv. 
+
+#Definizione della classe Biblioteca 
+
+La classe scaffale conterrà oggetti di tipo scaffale 
+Da completare
+
+---------------------------------------------------------------------
+FASE 2.
+
+1-importare le librerie necessarie, e il dataframe della biblioteca
+2-Analisi dei dati e visualizzazione dei dati:
+    -ciclo for: fare in modo che abbiamo la stringa giusta del genere del libro per poterci fare le classi
+    -Pandas: describe, info, shape, head ecc 
+    -Pandas: levare l'indice e fare in modo che la posizione del catalogo diventi l'indice
+    -Pandas:gestione dei valori nulli e duplicati, magari ordinarli 
+    -Altri tipi di pulizia
+    -MAtplotLib: in base al grafico scegliere le colonne giuste da mostrare per ottenere delle informazioni
+    -Matplotlib: grafico a torta per i generi
+    -Matplotlib: grafico a barre per libri piu prestati, autore e titolo
+    -Controllo se il genere del libro piu preso in prestito ha una correlazione che pesa sul genere
+    -date dei prestiti in quali mesi si verificano piu prestiti, mostrare con grafico
+    -
+    -valutare se fare una dashboard
+
+Nota:    Times Borrowed è il numero di volte in cui un libro è stato preso in prestito
+----------------------------------------------------------------------
+
+FASE 3. Machine Learning 
+
+PUNTO 1— Clustering dei Libri
+
+Feature Utilizzate: times_borrowed, rating, price, page_count. 
+
+Operazioni da fare: 
+
+Scala le variabili numeriche con StandardScaler. 
+
+Addestra il modello K-Means con $K=3$ o $K=4$ per dividere i libri in gruppi (es. Bestseller, Libri poco letti, Classici costosi). 
+
+PUNTO 2— Predizione Prestiti 
+
+Obiettivo: Prevedere il numero di prestiti (times_borrowed). 
+
+Feature Utilizzate: year_published, price, page_count, rating, ratings_count 
+
+Operazioni da fare: 
+
+Seleziona le colonne numeriche ed elimina eventuali righe con valori nulli rimasti. 
+
+Divide il dataset in Train set e Test set con train_test_split. 
+
+Addestra un modello (DecisionTreeRegressor o RandomForestRegressor). 
+
+Valuta il modello calcolando l'errore o il punteggio $R^2$ sui dati di Test. 
+
+FASE 4. Menu Interattivo 
+
+Costruzione di un semplice menu condizionale con while ed if / elif / else:
