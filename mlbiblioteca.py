@@ -97,7 +97,7 @@ def addestra_modello_predizione(df):
     # Dividiamo i dati in 80% per l'addestramento (Train) e 20% per la verifica finale (Test)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-# --- MODELLO 1: LINEAR REGRESSION ---
+#MODELLO 1: LINEAR REGRESSION
     # Inizializziamo il modello di Regressione Lineare
     modello_lr = LinearRegression()
     # Addestriamo la Regressione Lineare sui dati di Train
