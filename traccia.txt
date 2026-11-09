@@ -42,6 +42,11 @@ daily_late_fee (penale giornaliera)
 is_loanable()
 
 Le classi figlie saranno definite in base ai valori di "sezione" ottenute da file csv. 
+In particolare avremo le classi figlie: 
+FictionBook, NonFictionBook,Children Book, YoungAdultBook, ReferenceBook.
+
+tutti gli oggetti appartenenti alle classi saranno inseriti in una lista, in modo da accedere agli elementi e ad avere output 
+diversi in base alle funzioni appartenenti a ciascuna classe (Polimorfismo)
 
 
 #Definizione della classe Scaffale 
@@ -51,8 +56,10 @@ Informazioni contenute in parte nel file csv.
 
 #Definizione della classe Biblioteca 
 
-La classe scaffale conterrà oggetti di tipo scaffale 
-Da completare
+ricerca per titolo, autore, genere, sezione;
+classifiche: più prestati, meglio valutati, più recenti;
+statistiche: numero di libri per tipo, valore totale del catalogo;
+prestito e restituzione per titolo o per codice, che delegano al libro (e quindi al polimorfismo).
 
 ----------------------------------------------------------------------
 
