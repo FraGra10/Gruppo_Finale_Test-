@@ -38,7 +38,6 @@ borrow(), return_copy(),
 available_copies(), 
 is_available(),
 loan_days (durata del prestito)
-daily_late_fee (penale giornaliera)
 is_loanable()
 
 Le classi figlie saranno definite in base ai valori di "sezione" ottenute da file csv. 
@@ -47,12 +46,6 @@ FictionBook, NonFictionBook,Children Book, YoungAdultBook, ReferenceBook.
 
 tutti gli oggetti appartenenti alle classi saranno inseriti in una lista, in modo da accedere agli elementi e ad avere output 
 diversi in base alle funzioni appartenenti a ciascuna classe (Polimorfismo)
-
-
-#Definizione della classe Scaffale 
-
-La classe scaffale creerà una lista di oggetti di tipo Libro e li posizionerà in base al volume, al numero di scaffale e alla riga.
-Informazioni contenute in parte nel file csv. 
 
 #Definizione della classe Biblioteca 
 

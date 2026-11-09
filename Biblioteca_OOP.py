@@ -52,9 +52,11 @@ class Libro(ABC):
         self.altezza = altezza 
         self.scaffale = scaffale 
         self.riga = riga 
-        self.numero_riga = numero_riga 
-    
+        self.numero_riga = numero_riga
         
+    @abstractmethod
+    def sezione_libro(self):
+        print("Questo è un libro!")          
 
 #definizione delle classi figlie        
 class FictionBook(Libro):
@@ -66,7 +68,10 @@ class FictionBook(Libro):
         super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
-
+    
+    def sezione_libro(self):
+        print("Questo è un libro di narrativa!")
+             
 class NonFictionBook(Libro):
 
     def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
@@ -77,6 +82,10 @@ class NonFictionBook(Libro):
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
         
+    def sezione_libro(self):
+        print("Questo non è un libro di narrativa!")
+        
+                
 class ChildrenBook(Libro):
 
     def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
@@ -86,7 +95,11 @@ class ChildrenBook(Libro):
         super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+    
+    def sezione_libro(self):
+        print("Questo è un libro per bambini!")
         
+                
 class YoungAdultBook(Libro):
 
     def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
@@ -96,7 +109,11 @@ class YoungAdultBook(Libro):
         super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+    
+    def sezione_libro(self):
+        print("Questo è un libro per adulti!")
         
+                
 class ReferenceBook(Libro):
 
     def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
@@ -107,7 +124,9 @@ class ReferenceBook(Libro):
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
                 
-
+    def sezione_libro(self):
+        print("Questo è un'opera di consultazione!")
+        
 #Creazione dell'istanza del libro in base alla categoria di appartenenza 
 #Aggiunta delle istanze del libro ad un'unica lista 
 Books_list = []
@@ -140,3 +159,5 @@ for i in range(len(titolo)):
                       data_ultimo_prestito[i], rating[i], rating_count[i], prezzo[i], lingua[i], numero_pagine[i],
                       lunghezza[i], spessore[i], altezza[i],scaffale[i], riga[i], numero_riga[i]))                 
 
+
+print(Books_list[0].sezione_libro())
