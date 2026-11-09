@@ -23,7 +23,7 @@ Fase 1.
     
     -Il rating in base al genere con groupby
     
-    -valutare se fare una dashboard
+    -valutare se fare una dashboard opzionale
 
 Nota:    Times Borrowed è il numero di volte in cui un libro è stato preso in prestito
 ---------------------------------------------------------------------
