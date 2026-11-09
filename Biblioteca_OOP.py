@@ -1,5 +1,5 @@
 import pandas as pd
-
+from abc import ABC, abstractmethod
 
 
 
@@ -28,7 +28,7 @@ riga = df["catalog_row"].tolist()
 numero_riga = df["catalog_row_number"].tolist()
 
 #definizione della classe 
-class Libro:
+class Libro(ABC):
     
     def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
                       data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
@@ -53,6 +53,7 @@ class Libro:
         self.scaffale = scaffale 
         self.riga = riga 
         self.numero_riga = numero_riga 
+    
         
 
 #definizione delle classi figlie        
@@ -108,6 +109,7 @@ class ReferenceBook(Libro):
                 
 
 #Creazione dell'istanza del libro in base alla categoria di appartenenza 
+#Aggiunta delle istanze del libro ad un'unica lista 
 Books_list = []
 
 
@@ -137,5 +139,4 @@ for i in range(len(titolo)):
         Books_list.append(FictionBook(titolo[i],autore[i],anno_pubblicazione[i],genere[i],sezione[i],copie_totali[i],numero_prestiti[i],
                       data_ultimo_prestito[i], rating[i], rating_count[i], prezzo[i], lingua[i], numero_pagine[i],
                       lunghezza[i], spessore[i], altezza[i],scaffale[i], riga[i], numero_riga[i]))                 
-
 
