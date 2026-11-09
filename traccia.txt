@@ -102,9 +102,4 @@ Implementazione della funzione prevedi_nuovo_libro() per consentire la predizion
 
 FASE 4. Menu Interattivo 
 
-<<<<<<< HEAD:analisidati.txt
 Costruzione di un semplice menu condizionale con while ed if / elif / else: 
-=======
-Costruzione di un semplice menu condizionale con while ed if / elif / else:
-
->>>>>>> 103fd2bbc2e5e62e3939baab1fab7a78d62826f6:traccia.txt
