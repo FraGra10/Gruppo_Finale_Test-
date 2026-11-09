@@ -58,33 +58,53 @@ prestito e restituzione per titolo o per codice, che delegano al libro (e quindi
 
 FASE 3. Machine Learning 
 
-PUNTO 1— Clustering dei Libri
+Pre-elaborazione Dati (prepara_dati) 
 
-Feature Utilizzate: times_borrowed, rating, price, page_count. 
+Trattamento Dati Mancanti: Identificazione ed imputazione dei valori nulli (NaN) sulle sole colonne numeriche del dataset (times_borrowed, rating, ratings_count, price, page_count, year_published) tramite la loro mediana con .fillna(). 
 
-Operazioni da fare: 
+PUNTO 1 — Clustering dei Libri (Apprendimento Non Supervisionato) 
 
-Scala le variabili numeriche con StandardScaler. 
+Feature Utilizzate (Solo Numeriche): times_borrowed, rating, price, page_count. 
 
-Addestra il modello K-Means con $K=3$ o $K=4$ per dividere i libri in gruppi (es. Bestseller, Libri poco letti, Classici costosi). 
+Passaggi Operativi: 
 
-PUNTO 2— Predizione Prestiti 
+Selezione delle feature numeriche di interesse per definire il profilo dei libri. 
 
-Obiettivo: Prevedere il numero di prestiti (times_borrowed). 
+Normalizzazione e scalatura dei dati con StandardScaler (media pari a 0 e varianza pari a 1). 
 
-Feature Utilizzate: year_published, price, page_count, rating, ratings_count 
+Addestramento dell'algoritmo K-Means impostando $K=4$ cluster (n_clusters=4, random_state=42). 
 
-Operazioni da fare: 
+Assegnazione della colonna Cluster al DataFrame ed estrazione delle caratteristiche medie di ciascun gruppo tramite df.groupby('Cluster').mean().round(2). 
 
-Seleziona le colonne numeriche ed elimina eventuali righe con valori nulli rimasti. 
+Rappresentazione grafica dei cluster tramite Scatter Plot con Matplotlib (plt.scatter), ponendo il prezzo sull'asse $X$ e i prestiti sull'asse $Y$. 
 
-Divide il dataset in Train set e Test set con train_test_split. 
+PUNTO 2 — Predizione dei Prestiti (Apprendimento Supervisionato) 
 
-Addestra un modello (DecisionTreeRegressor o RandomForestRegressor). 
+Obiettivo: Prevedere il numero di prestiti totali accumulati da un libro (times_borrowed). 
 
-Valuta il modello calcolando l'errore o il punteggio $R^2$ sui dati di Test. 
+Feature Utilizzate (Solo Numeriche): year_published, price, page_count, rating, ratings_count. 
+
+Passaggi Operativi: 
+
+Definizione della matrice delle variabili di input ($X$) e del vettore target ($y$). 
+
+Suddivisione del dataset tramite train_test_split (80% per il Train set e 20% per il Test set). 
+
+Addestramento e confronto diretto di due modelli di regressione: 
+
+Modello 1: LinearRegression() 
+
+Modello 2: DecisionTreeRegressor(random_state=42) 
+
+Calcolo dell'Errore Medio di predizione su entrambi i modelli tramite un ciclo for ed un controllo condizionale if per sommare i valori assoluti degli scarti tra i valori reali (y_test) e le stime effettuate. 
+
+Implementazione della funzione prevedi_nuovo_libro() per consentire la predizione dei prestiti di un singolo libro a partire dalle sue 5 caratteristiche numeriche inserite dall'utente. 
 
 FASE 4. Menu Interattivo 
 
+<<<<<<< HEAD:analisidati.txt
+Costruzione di un semplice menu condizionale con while ed if / elif / else: 
+=======
 Costruzione di un semplice menu condizionale con while ed if / elif / else:
 
+>>>>>>> 103fd2bbc2e5e62e3939baab1fab7a78d62826f6:traccia.txt

@@ -97,7 +97,7 @@ def addestra_modello_predizione(df):
     # Dividiamo i dati in 80% per l'addestramento (Train) e 20% per la verifica finale (Test)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-# --- MODELLO 1: LINEAR REGRESSION ---
+#MODELLO 1: REGRESSIONE LINEARE
     # Inizializziamo il modello di Regressione Lineare
     modello_lr = LinearRegression()
     # Addestriamo la Regressione Lineare sui dati di Train
@@ -105,7 +105,7 @@ def addestra_modello_predizione(df):
     # Facciamo le predizioni sui dati di Test
     y_pred_lr = modello_lr.predict(X_test)
     
-    # --- MODELLO 2: DECISION TREE REGRESSOR ---
+#MODELLO 2:
     # Inizializziamo l'Albero di Decisione
     modello_dt = DecisionTreeRegressor(random_state=42)
     # Addestriamo l'Albero di Decisione sui dati di Train
@@ -143,10 +143,10 @@ def addestra_modello_predizione(df):
     
     # Stampiamo a schermo il confronto fra l'errore medio dei due modelli
     print("\nConfronto Errore Medio dei Modelli di Regressione:")
-    # Stampiamo l'errore della Linear Regression (arrotondato a 2 cifre decimali)
-    print(f"1) Linear Regression  -> Errore Medio: {round(errore_medio_lr, 2)} prestiti")
+    # Stampiamo l'errore della Regressione Lineare (arrotondato a 2 cifre decimali)
+    print(f"1) Regressione Lineare-> Errore Medio: {round(errore_medio_lr, 2)} prestiti")
     # Stampiamo l'errore del Decision Tree
-    print(f"2) Decision Tree      -> Errore Medio: {round(errore_medio_dt, 2)} prestiti")
+    print(f"2) Decision Tree -> Errore Medio: {round(errore_medio_dt, 2)} prestiti")
     
     # Restituiamo la LinearRegression da usare nel Menu
     return modello_lr
