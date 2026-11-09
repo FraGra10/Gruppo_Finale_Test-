@@ -31,12 +31,19 @@ FASE 2.
 1-importare le librerie necessarie, e il dataframe della biblioteca
 2-Analisi dei dati e visualizzazione dei dati:
     -ciclo for: fare in modo che abbiamo la stringa giusta del genere del libro per poterci fare le classi
+
     -Pandas: describe, info, shape, head ecc 
+
     -Pandas: levare l'indice e fare in modo che la posizione del catalogo diventi l'indice
+
     -Pandas:gestione dei valori nulli e duplicati, magari ordinarli 
+
     -Altri tipi di pulizia
+
     -MAtplotLib: in base al grafico scegliere le colonne giuste da mostrare per ottenere delle informazioni
+    
     -Matplotlib: grafico a torta per i generi
+    
     -Matplotlib: grafico a barre per libri piu prestati, autore e titolo
     -Controllo se il genere del libro piu preso in prestito ha una correlazione che pesa sul genere
     -date dei prestiti in quali mesi si verificano piu prestiti, mostrare con grafico
