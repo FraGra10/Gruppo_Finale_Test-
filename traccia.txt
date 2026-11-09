@@ -1,5 +1,34 @@
 
-Fase 1. Definizione di una classe padre "Libro" con attributi ottenuti dal file CSV books.csv 
+Fase 1. 
+1-importare le librerie necessarie, e il dataframe della biblioteca
+
+2-Analisi dei dati e visualizzazione dei dati:
+    
+
+    -Pandas: describe, info, shape, head ecc 
+
+    -Pandas:gestione dei valori nulli e duplicati, magari ordinarli 
+
+    -Altri tipi di pulizia
+
+    -Matplotlib: grafico a torta per i generi
+    
+    -Matplotlib: grafico a barre per libri piu prestati, autore e titolo
+    
+    -date dei prestiti in quali mesi si verificano piu prestiti, mostrare con grafico
+
+    -pivot table con genere per sezione che vengono valutati per quante volte sono stati presi in prestito
+
+    -Matplotlib:grafico dei 10 libri più letti che rating hanno con la media
+    
+    -Il rating in base al genere con groupby
+    
+    -valutare se fare una dashboard
+
+Nota:    Times Borrowed è il numero di volte in cui un libro è stato preso in prestito
+---------------------------------------------------------------------
+FASE 2.
+Definizione di una classe padre "Libro" con attributi ottenuti dal file CSV books.csv 
 
 La classe padre avrà come attributi: titolo del libro, autore, anno di pubblicazione, genere, sezione, lingua, numero di pagine, prezzo,
 copie totali.
@@ -25,32 +54,6 @@ Informazioni contenute in parte nel file csv.
 La classe scaffale conterrà oggetti di tipo scaffale 
 Da completare
 
----------------------------------------------------------------------
-FASE 2.
-
-1-importare le librerie necessarie, e il dataframe della biblioteca
-2-Analisi dei dati e visualizzazione dei dati:
-    -ciclo for: fare in modo che abbiamo la stringa giusta del genere del libro per poterci fare le classi
-
-    -Pandas: describe, info, shape, head ecc 
-
-    -Pandas: levare l'indice e fare in modo che la posizione del catalogo diventi l'indice
-
-    -Pandas:gestione dei valori nulli e duplicati, magari ordinarli 
-
-    -Altri tipi di pulizia
-
-    -MAtplotLib: in base al grafico scegliere le colonne giuste da mostrare per ottenere delle informazioni
-    
-    -Matplotlib: grafico a torta per i generi
-    
-    -Matplotlib: grafico a barre per libri piu prestati, autore e titolo
-    -Controllo se il genere del libro piu preso in prestito ha una correlazione che pesa sul genere
-    -date dei prestiti in quali mesi si verificano piu prestiti, mostrare con grafico
-    -
-    -valutare se fare una dashboard
-
-Nota:    Times Borrowed è il numero di volte in cui un libro è stato preso in prestito
 ----------------------------------------------------------------------
 
 FASE 3. Machine Learning 
@@ -84,3 +87,4 @@ Valuta il modello calcolando l'errore o il punteggio $R^2$ sui dati di Test.
 FASE 4. Menu Interattivo 
 
 Costruzione di un semplice menu condizionale con while ed if / elif / else:
+
