@@ -65,6 +65,10 @@ class Libro(ABC):
         """True se il libro può uscire dalla biblioteca."""
         pass   
     
+    @abstractmethod
+    def costo_prestito(self,giorni_prestito):
+        pass 
+    
     #numero di copie del libro
     def get_numero_copie(self):
         return self.copie_totali
@@ -98,6 +102,10 @@ class FictionBook(Libro):
         super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+
+    def costo_prestito(self,giorni_prestito):
+        
+        return 1/3*self.prezzo + 1*giorni_prestito
     
     def sezione_libro(self):
         print("Questo è un libro di narrativa!")
@@ -115,6 +123,10 @@ class NonFictionBook(Libro):
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
         
+    def costo_prestito(self,giorni_prestito):
+        
+        return 2/3*self.prezzo + 1*giorni_prestito
+    
     def sezione_libro(self):
         print("Questo non è un libro di narrativa!")
         
@@ -130,7 +142,11 @@ class ChildrenBook(Libro):
         super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
-    
+
+    def costo_prestito(self,giorni_prestito):
+        
+        return 1/3*self.prezzo + 1*giorni_prestito
+        
     def sezione_libro(self):
         print("Questo è un libro per bambini!")
         
@@ -146,9 +162,13 @@ class YoungAdultBook(Libro):
         super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+
+    def costo_prestito(self,giorni_prestito):
+        
+        return 2/3*self.prezzo + 1*giorni_prestito
     
     def sezione_libro(self):
-        print("Questo è un libro per adulti!")
+        print("Questo è un libro per ragazzi!")
         
     def prestabile(self):
         return True    
@@ -168,7 +188,13 @@ class ReferenceBook(Libro):
         print("Questo è un'opera di consultazione!")
     
     def prestabile(self):
-        return False         
+        return False
+    
+    def costo_prestito(self,giorni_prestito):
+        
+        return 0 #Non è prestabile 
+
+         
 #Creazione dell'istanza del libro in base alla categoria di appartenenza 
 #Aggiunta delle istanze del libro ad un'unica lista 
 Books_list = []
@@ -202,14 +228,14 @@ for i in range(len(titolo)):
                       lunghezza[i], spessore[i], altezza[i],scaffale[i], riga[i], numero_riga[i]))                 
 
 
-
+#Definizione della classe biblioteca 
 class Biblioteca():
     
     def __init__(self,Books_list):
         
         self.Books = Books_list
         
-    
+#Funzione per prendere in prestito un libro dalla biblioteca    
     def prendi_in_prestito(self,nome):
                 
         index = -1
@@ -234,42 +260,62 @@ class Biblioteca():
                     print("Questo libro è solo per consultazione!")
                 else:
                     print("Le copie del libro sono finite!")
-            
+
+#Elenco dei libri divisi per sezione            
     def ricerca_per_sezione(self,nome_sezione):
         
         for y in range(len(self.Books)):
             if(self.Books[y].sezione == nome_sezione):
                 print(self.Books[y])
                 
-    
+#Elenco dei libri divisi per autore     
     def ricerca_per_autore(self,nome_autore):
 
         for y in range(len(self.Books)):
-            if(self.Books[y].autore == nome_autore):
+            if(self.Books[y].autore.lower() == nome_autore.lower()):
                 print(self.Books[y])           
-            
+
+#Elenco dei libri divisi per genere             
     def ricerca_per_genere(self,genere):
 
         for y in range(len(self.Books)):
-            if(self.Books[y].genere == genere):
+            if(self.Books[y].genere.lower() == genere.lower()):
                 print(self.Books[y])
-    
+
+#Ricerca dei libri per titolo, scaffale e genere    
     def ricerca_per_titolo_scaffale_riga(self,titolo):
         
         for y in range(len(self.Books)):
-            if(self.Books[y].titolo == titolo):
+            if(self.Books[y].titolo.lower() == titolo.lower()):
                 print("Il libro da te cercato è: ",self.Books[y])
-                print("Lo puoi trovare allo scaffale: ", self.Books[y].scaffale, "alla riga : ",self.Books[y].riga, " alla posizione numero: ", self.Books[y].numero_riga )
-                               
+                print("Lo puoi trovare nello scaffale: ", self.Books[y].scaffale, "alla riga : ",self.Books[y].riga, "posizione numero: ", self.Books[y].numero_riga )
+                break
+            
+#Ordinamento dei libri per rating e stampa dei primi 100 libri                                 
     def ordinamento_per_rating(self):
+        ordinati = sorted(self.Books, key=lambda libro: libro.rating, reverse=True)
         
-        for y in range(len(self.Books)):
-            print(self.Books[y].rating)
+        for libro in ordinati[:100]:
+            print(libro.titolo, "-", libro.rating)
 
+#Stampa del valore totale dei libri presenti in Biblioteca 
+    def valore_totale(self):
+        somma_prezzi = 0 
+        for i in self.Books:
+            somma_prezzi += i.prezzo*i.copie_totali
+        
+        print("Il valore totale dei libri presenti in Biblioteca è pari a :", round(somma_prezzi,3) , "$")
+
+
+
+
+
+######
 Bib = Biblioteca(Books_list)
-#Bib.prendi_in_prestito()
+#Bib.prendi_in_prestito("Youth")
 
-#Bib.ricerca_per_sezione("Reference")
-#Bib.ricerca_per_titolo_scaffale_riga("Catching Fire")
-Bib.ordinamento_rating()
+#Bib.ricerca_per_genere("DramA")
+Bib.ricerca_per_titolo_scaffale_riga("Harry Potter and the Prisoner of Azkaban")
+#Bib.ordinamento_per_rating()
+#Bib.valore_totale()
     
