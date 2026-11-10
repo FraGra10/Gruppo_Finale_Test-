@@ -4,7 +4,18 @@ from datetime import date
 
 
 df = pd.read_csv("books.csv")
+
+Rare_books  = df[df["section"] == "Rare Books"]
+
+df = df[df["section"] != "Rare Books"]
+
 df = df.dropna()
+
+df = pd.concat(
+    [df, Rare_books],
+    ignore_index=True
+)
+
 
 
 titolo = df["title"].tolist()
@@ -59,6 +70,7 @@ class Libro(ABC):
     @abstractmethod
     def sezione_libro(self):
         print("Questo è un libro!")
+        pass
 
     @abstractmethod
     def prestabile(self):
@@ -201,6 +213,26 @@ class ReferenceBook(Libro):
     def costo_prestito(self,giorni_prestito):
         
         return 0 #Non è prestabile 
+    
+class RareBook(Libro):
+
+#    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
+        
+#        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+                
+    def sezione_libro(self):
+        print("Questo è un libro raro!")
+    
+    def prestabile(self):
+        return False
+    
+    def costo_prestito(self,giorni_prestito):
+        
+        return 0 #Non è prestabile 
 
          
 #Creazione dell'istanza del libro in base alla categoria di appartenenza 
@@ -230,10 +262,15 @@ for i in range(len(titolo)):
                       data_ultimo_prestito[i], rating[i], rating_count[i], prezzo[i], lingua[i], numero_pagine[i],
                       lunghezza[i], spessore[i], altezza[i],scaffale[i], riga[i], numero_riga[i]))
     
+    elif(sezione[i] == "Rare Books"):
+        Books_list.append(RareBook(titolo[i],autore[i],anno_pubblicazione[i],genere[i],sezione[i],copie_totali[i],numero_prestiti[i],
+                      data_ultimo_prestito[i], rating[i], rating_count[i], prezzo[i], lingua[i], numero_pagine[i],
+                      lunghezza[i], spessore[i], altezza[i],scaffale[i], riga[i], numero_riga[i]))
+
     else:
         Books_list.append(FictionBook(titolo[i],autore[i],anno_pubblicazione[i],genere[i],sezione[i],copie_totali[i],numero_prestiti[i],
                       data_ultimo_prestito[i], rating[i], rating_count[i], prezzo[i], lingua[i], numero_pagine[i],
-                      lunghezza[i], spessore[i], altezza[i],scaffale[i], riga[i], numero_riga[i]))                 
+                      lunghezza[i], spessore[i], altezza[i],scaffale[i], riga[i], numero_riga[i]))                  
 
 
 #Definizione della classe biblioteca 
@@ -283,7 +320,7 @@ class Biblioteca():
             print("Libro non trovato!")
         else:    
             if(self.Books[index].get_copie_in_prestito() > 0  ):
-                print("Il prezzo da pagare è:", self.Books[index].costo_prestito(giorni_prestito) , "$" )
+                print("Il prezzo da pagare è:", round(self.Books[index].costo_prestito(giorni_prestito),2) , "$" )
                 self.Books[index].set_copie_in_prestito(self.Books[index].get_copie_in_prestito() - 1)
                 print("Libro riconsegnato!")
             else:
@@ -341,12 +378,12 @@ class Biblioteca():
 
 ######
 Bib = Biblioteca(Books_list)
-Bib.prendi_in_prestito("Harry Potter and the Prisoner of Azkaban")
-#Bib.restituisci_libro_prestito("Kipps",15)
+#Bib.prendi_in_prestito("The Hobbit (1st Edition)")
+#Bib.restituisci_libro_prestito("Harry potter and the prisoner of azkaban",15)
 
-#Bib.ricerca_per_genere("DramA")
-#Bib.ricerca_per_titolo_scaffale_riga("Harry Potter and the Prisoner of Azkaban")
+#Bib.ricerca_per_sezione("Rare Books")
+#Bib.ricerca_per_titolo_scaffale_riga("The Hobbit (1st Edition)")
 #Bib.ordinamento_per_rating()
 #Bib.valore_totale()
     
-print(Books_list[1170].get_area_tematica())
+#print(Books_list[1170].get_area_tematica())
