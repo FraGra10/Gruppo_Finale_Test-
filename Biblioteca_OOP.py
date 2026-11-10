@@ -77,6 +77,9 @@ class Libro(ABC):
     def get_copie_in_prestito(self):
         return self.__copie_in_prestito
     
+    def set_copie_in_prestito(self,data):
+        self.__copie_in_prestito = data 
+    
     #registrazione di un prestito 
     def registra_prestito(self):
         self.__copie_in_prestito += 1
@@ -241,7 +244,7 @@ class Biblioteca():
         index = -1
         for y in range(len(self.Books)):
             
-            if(nome == self.Books[y].titolo):
+            if(nome.lower() == self.Books[y].titolo.lower()):
                 index = y
                 break 
                 
@@ -261,11 +264,32 @@ class Biblioteca():
                 else:
                     print("Le copie del libro sono finite!")
 
+#Restituisci libro prestato                   
+    def restituisci_libro_prestito(self,nome, giorni_prestito):
+                
+        index = -1
+        for y in range(len(self.Books)):
+            
+            if(nome.lower() == self.Books[y].titolo.lower()):
+                index = y
+                break 
+                
+        if(index == -1):
+            print("Libro non prestato in precedenza!")
+        else:    
+            if(self.Books[index].get_copie_in_prestito() > 0  ):
+                print("Il prezzo da pagare è:", self.Books[index].costo_prestito(giorni_prestito) , "$" )
+                self.Books[index].set_copie_in_prestito(self.Books[index].get_copie_in_prestito() - 1)
+                print("Libro riconsegnato!")
+            else:
+                print("Il libro non è mai stato prestato!")
+
+
 #Elenco dei libri divisi per sezione            
     def ricerca_per_sezione(self,nome_sezione):
         
         for y in range(len(self.Books)):
-            if(self.Books[y].sezione == nome_sezione):
+            if(self.Books[y].sezione.lower() == nome_sezione.lower()):
                 print(self.Books[y])
                 
 #Elenco dei libri divisi per autore     
@@ -312,10 +336,11 @@ class Biblioteca():
 
 ######
 Bib = Biblioteca(Books_list)
-#Bib.prendi_in_prestito("Youth")
+Bib.prendi_in_prestito("Kipps")
+Bib.restituisci_libro_prestito("Kipps",15)
 
 #Bib.ricerca_per_genere("DramA")
-Bib.ricerca_per_titolo_scaffale_riga("Harry Potter and the Prisoner of Azkaban")
+#Bib.ricerca_per_titolo_scaffale_riga("Harry Potter and the Prisoner of Azkaban")
 #Bib.ordinamento_per_rating()
 #Bib.valore_totale()
     
