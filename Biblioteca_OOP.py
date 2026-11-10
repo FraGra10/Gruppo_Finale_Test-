@@ -98,13 +98,13 @@ class Libro(ABC):
 #definizione delle classi figlie rappresentanti le cinque sezioni         
 class FictionBook(Libro):
 
-    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
+#    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
         
-        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+#        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
 
     def costo_prestito(self,giorni_prestito):
         
@@ -126,6 +126,8 @@ class NonFictionBook(Libro):
                         data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
                         lunghezza, spessore, altezza,scaffale, riga, numero_riga)
         
+        self.area_tematica = sezione
+        
     def costo_prestito(self,giorni_prestito):
         
         return 2/3*self.prezzo + 1*giorni_prestito
@@ -135,16 +137,19 @@ class NonFictionBook(Libro):
         
     def prestabile(self):
         return True 
+    
+    def get_area_tematica(self):
+        return self.area_tematica
                     
 class ChildrenBook(Libro):
 
-    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
+#    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
         
-        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+#        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
 
     def costo_prestito(self,giorni_prestito):
         
@@ -158,13 +163,13 @@ class ChildrenBook(Libro):
                     
 class YoungAdultBook(Libro):
 
-    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
+#    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
         
-        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+#        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
 
     def costo_prestito(self,giorni_prestito):
         
@@ -179,13 +184,13 @@ class YoungAdultBook(Libro):
                  
 class ReferenceBook(Libro):
 
-    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
+#    def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                      data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                      lunghezza, spessore, altezza,scaffale, riga, numero_riga):
         
-        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
-                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
-                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
+#        super().__init__(titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+#                        data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,
+#                        lunghezza, spessore, altezza,scaffale, riga, numero_riga)
                 
     def sezione_libro(self):
         print("Questo è un'opera di consultazione!")
@@ -237,7 +242,7 @@ class Biblioteca():
     def __init__(self,Books_list):
         
         self.Books = Books_list
-        
+            
 #Funzione per prendere in prestito un libro dalla biblioteca    
     def prendi_in_prestito(self,nome):
                 
@@ -337,10 +342,11 @@ class Biblioteca():
 ######
 Bib = Biblioteca(Books_list)
 Bib.prendi_in_prestito("Harry Potter and the Prisoner of Azkaban")
-Bib.restituisci_libro_prestito("Kipps",15)
+#Bib.restituisci_libro_prestito("Kipps",15)
 
 #Bib.ricerca_per_genere("DramA")
 #Bib.ricerca_per_titolo_scaffale_riga("Harry Potter and the Prisoner of Azkaban")
 #Bib.ordinamento_per_rating()
 #Bib.valore_totale()
     
+print(Books_list[1170].get_area_tematica())
