@@ -67,6 +67,7 @@ ricerca per titolo, autore, genere, sezione,scaffale e riga;
 classifiche: meglio valutati, 
 statistiche: valore totale del catalogo
 prestito per titolo.
+restituzione per titolo e giorni di prestito 
 
 ----------------------------------------------------------------------
 
