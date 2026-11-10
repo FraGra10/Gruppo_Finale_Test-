@@ -17,10 +17,10 @@ Fase 1.
     
     -date dei prestiti in quali mesi si verificano piu prestiti, mostrare con grafico
 
-    -pivot table con genere per sezione che vengono valutati per quante volte sono stati presi in prestito
-
-    -Matplotlib:grafico dei 10 libri più letti che rating hanno con la media
+    -Plotly:grafico della correlazione tra numeri di prestiti e e rating
     
+    -pivot table con genere per sezione che vengono valutati per quante volte sono stati presi in prestito
+ 
     -Il rating in base al genere con groupby
     
     -valutare se fare una dashboard opzionale
