@@ -4,58 +4,37 @@ import mlbiblioteca as ml
 import analisi as ad
 
 
-def menu_oggetti():
-    """Sottomenu dedicato alla Gestione ad Oggetti."""
-    mentre_in_oggetti = True
-    while mentre_in_oggetti:
-        print("\n--- MENU: CREAZIONE AD OGGETTI ---")
-        print("1. Visualizza dettagli di un libro")
-        print("2. Aggiungi/Modifica stato del libro")
-        print("3. Esegui metodo personalizzato dell'Oggetto")
-        print("0. Torna al Menu Principale")
-        
-        scelta = input("\nSeleziona un'opzione: ").strip()
-        
-        if scelta == '1':
-            print("\n[Esecuzione...] Mostra Dettagli Oggetto")
-            go.mostra_dettagli_libro()
-        elif scelta == '2':
-            print("\n[Esecuzione...] Modifica Stato Libro")
-            go.modifica_stato_libro()
-        elif scelta == '3':
-            print("\n[Esecuzione...] Metodo personalizzato")
-            go.esegui_metodo()
-        elif scelta == '0':
-            mentre_in_oggetti = False
-        else:
-            print("Opzione non valida. Riprova.")
-
 
 def menu_analisi_dati():
     """Sottomenu dedicato all'Analisi dei Dati."""
     mentre_in_analisi = True
     while mentre_in_analisi:
-        print("\n--- MENU: ANALISI DEI DATI ---")
+        print("\n--- MENU: ANALISI DEI DATI---")
         print("1. Esplorazione iniziale (shape, info, describe, head)")
-        print("2. Pulizia del dataset (rimozione duplicati e valori nulli)")
-        print("3. Grafico a torta: Top 10 generi più presi in prestito")
-        print("4. Grafico a barre: Top 10 libri più prestati")
+        print("2. Pulizia del dataset (uniformazione sezioni, duplicati, nulli)")
+        print("3. Grafico a Torta: Top 10 generi più presi in prestito")
+        print("4. Grafico a Barre: Top 10 libri più prestati")
+        print("5. Grafico a Barre: Prestiti per mese dell'ultimo prestito")
+        print("6. Scatter Plot Interattivo: Valutazione vs Prestiti (Plotly)")
+        print("7. Grafico a Barre: Media prestiti per sezione (Plotly)")
         print("0. Torna al Menu Principale")
         
         scelta = input("\nSeleziona un'opzione: ").strip()
         
         if scelta == '1':
-            print("\n[Esecuzione...] Esplorazione DataFrame")
             ad.esplora_dataframe()
         elif scelta == '2':
-            print("\n[Esecuzione...] Pulizia Dataset")
             ad.pulisci_dataset()
         elif scelta == '3':
-            print("\n[Esecuzione...] Grafico a Torta Generi")
             ad.mostra_grafico_torta()
         elif scelta == '4':
-            print("\n[Esecuzione...] Grafico a Barre Top 10 Libri")
-            ad.mostra_grafico_barre()
+            ad.mostra_grafico_barre_top10()
+        elif scelta == '5':
+            ad.mostra_grafico_mesi()
+        elif scelta == '6':
+            ad.mostra_scatter_plotly()
+        elif scelta == '7':
+            ad.mostra_prestiti_medi_plotly()
         elif scelta == '0':
             mentre_in_analisi = False
         else:
@@ -67,31 +46,43 @@ def menu_machine_learning():
     mentre_in_ml = True
     while mentre_in_ml:
         print("\n--- MENU: MACHINE LEARNING ---")
-        print("1. Pre-elaborazione Dati")
-        print("2. Addestramento Modello")
-        print("3. Valutazione e Metriche")
-        print("4. Effettua una nuova Previsione")
+        print("1. Segmentazione Libri (Clustering K-Means & PCA 2D)")
+        print("2. Valutazione e Confronto Modelli (Linear Regression vs Decision Tree)")
+        print("3. Previsione Prestiti per un Nuovo Libro")
+        print("4. Sistema di Raccomandazione Libri (Cosine Similarity)")
         print("0. Torna al Menu Principale")
         
         scelta = input("\nSeleziona un'opzione: ").strip()
         
         if scelta == '1':
-            print("\n[Esecuzione...] Pre-processing Dati")
-            ml.prepara_dati()
+            print("\n[Esecuzione...] Clustering K-Means e generazione grafico PCA...")
+            ml.esegui_clustering(ad.df, n_clusters=4)
+            
         elif scelta == '2':
-            print("\n[Esecuzione...] Addestramento Modello")
-            ml.addestra_modello()
+            print("\n[Esecuzione...] Addestramento e confronto modelli di Regressione...")
+            ml.addestra_modello_predizione(ad.df)
+            
         elif scelta == '3':
-            print("\n[Esecuzione...] Valutazione Modello")
-            ml.valuta_modello()
+            print("\n--- PREVISIONE PRESTITI PER UN NUOVO LIBRO ---")
+            anno = float(input("Anno di pubblicazione (es. 2021): "))
+            prezzo = float(input("Prezzo in € (es. 18.5): "))
+            pagine = float(input("Numero di pagine (es. 350): "))
+            rating = float(input("Rating (es. 4.2): "))
+            voti = float(input("Numero di voti/recensioni (es. 120): "))
+            
+            # Addestra il modello al momento e calcola subito la stima
+            modello = ml.addestra_modello_predizione(ad.df)
+            stima = ml.prevedi_nuovo_libro(modello, anno, prezzo, pagine, rating, voti)
+            print(f"\n-> Risultato: Il libro otterrà circa {stima} prestiti totali.")
+                
         elif scelta == '4':
-            print("\n[Esecuzione...] Previsione")
-            ml.predici()
+            titolo_cercato = input("\nInserisci il titolo (o parte di esso) del libro da cercare: ").strip()
+            ml.raccomanda_libri(ad.df, titolo_cercato)
+                
         elif scelta == '0':
             mentre_in_ml = False
         else:
-            print("Opzione non valida. Riprova.")
-
+            print("Opzione non valida. Scegli un numero da 0 a 4.")
 
 def menu_principale():
     """Menu principale che collega tutte le sezioni."""

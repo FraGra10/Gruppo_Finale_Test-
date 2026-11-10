@@ -1,15 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
 
-# 1. Carichiamo e puliamo il dataframe a livello generale del modulo
+# Caricamento del dataset
 df = pd.read_csv('books.csv')
 
-# FUNZIONI RICHIAMATE DAL MENU
 
 def esplora_dataframe():
     """Mostra le informazioni e statistiche iniziali del DataFrame."""
-    print("--- SHAPE DEL DATAFRAME ---")
-    print(df.shape)  # forma del df (righe x colonne)
+    print("\n--- SHAPE DEL DATAFRAME ---")
+    print(df.shape)  # Forma del df (righe x colonne)
     
     print('\n---------------------------------')
     print("--- INFO DEL DATAFRAME ---")
@@ -25,17 +25,21 @@ def esplora_dataframe():
 
 
 def pulisci_dataset():
-    """Elimina i duplicati e le righe con valori nulli."""
+    """Effettua la pulizia del dataset: uniforma le sezioni, rimuove duplicati e valori nulli."""
     global df
+    # Sostituzione variante nome sezione
+    df["section"] = df["section"].replace({"Young Adult (YA)": "Young Adult"})
+    
+    # Rimozione duplicati e righe con valori mancanti
     df = df.drop_duplicates()
     df = df.dropna()
-    print("\nDataset pulito con successo! (Rimossi duplicati e valori nulli)")
+    
+    print("\n[OK] Dataset pulito con successo!")
     print(df.info())
 
 
 def mostra_grafico_torta():
-    """Genera il grafico a torta dei Top 10 generi più presi in prestito."""
-    # Raggruppo per genere e sommo per i prestiti
+    """Genera il grafico a torta dei Top 10 generi più presi in prestito (Matplotlib)."""
     prestiti_per_genere = df.groupby("genre")["times_borrowed"].sum()
     prestiti_per_genere_top_ten = prestiti_per_genere.sort_values(ascending=False).head(10)
 
@@ -43,15 +47,16 @@ def mostra_grafico_torta():
     plt.pie(
         prestiti_per_genere_top_ten,
         labels=prestiti_per_genere_top_ten.index,
-        autopct="%1.1f%%", 
+        autopct="%.2f%%", 
         colors=plt.cm.Set3.colors,
     )
-    plt.title("La Top Ten dei prestiti dei generi più apprezzati")
+    plt.title("La top Ten dei prestiti dei generi più apprezzati")
+    plt.tight_layout()
     plt.show()
 
 
-def mostra_grafico_barre():
-    """Genera il grafico a barre orizzontali dei 10 libri più prestati."""
+def mostra_grafico_barre_top10():
+    """Genera il grafico a barre orizzontali dei 10 libri più prestati (Matplotlib)."""
     top_10 = df.sort_values("times_borrowed", ascending=False).head(10)
     etichette = top_10["title"] + " — " + top_10["author"]
 
@@ -65,7 +70,7 @@ def mostra_grafico_barre():
 
 
 def mostra_grafico_mesi():
-    """Genera il grafico a barre per i prestiti divisi per mese."""
+    """Genera il grafico a barre per i prestiti divisi per mese (Matplotlib)."""
     date = pd.to_datetime(df["last_borrowed_date"], format="%m/%d/%Y")
     libri_per_mese = date.dt.to_period("M").value_counts().sort_index()
 
@@ -77,3 +82,51 @@ def mostra_grafico_mesi():
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
     plt.show()
+
+
+def mostra_scatter_plotly():
+    """Genera lo Scatter Plot interattivo (Valutazione vs Prestiti) tramite Plotly."""
+    fig = px.scatter(
+        df,
+        x="rating",
+        y="times_borrowed",
+        color="section",
+        hover_name="title",
+        hover_data=["author", "genre", "ratings_count"],
+        color_discrete_sequence=px.colors.qualitative.Vivid,
+        labels={
+            "rating": "Valutazione media",
+            "times_borrowed": "Numero di prestiti",
+            "section": "Sezione",
+            "author": "Autore",
+            "genre": "Genere",
+            "ratings_count": "Numero di valutazioni",
+        },
+        title="Valutazioni e prestiti dei libri (Scatter Plot Interattivo)",
+    )
+    fig.show()
+
+
+def mostra_prestiti_medi_plotly():
+    """Genera il grafico a barre della media prestiti per sezione tramite Plotly."""
+    prestiti_medi = (
+        df.groupby("section", as_index=False)["times_borrowed"]
+        .mean()
+        .sort_values("times_borrowed", ascending=False)
+    )
+
+    fig = px.bar(
+        prestiti_medi,
+        x="times_borrowed",
+        y="section",
+        color="section",
+        color_discrete_sequence=px.colors.qualitative.Set3,
+        text_auto=".0f",
+        labels={
+            "times_borrowed": "Prestiti medi per libro",
+            "section": "Sezione",
+        },
+        title="Media dei prestiti per sezione (Plotly)",
+    )
+    fig.update_xaxes(hoverformat=".0f")
+    fig.show()
