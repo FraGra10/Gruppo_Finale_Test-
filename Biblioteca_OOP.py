@@ -271,5 +271,5 @@ Bib = Biblioteca(Books_list)
 
 #Bib.ricerca_per_sezione("Reference")
 #Bib.ricerca_per_titolo_scaffale_riga("Catching Fire")
-Bib.ordinamento_rating()
+Bib.ordinamento_per_rating()
     
