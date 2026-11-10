@@ -275,14 +275,14 @@ class Biblioteca():
                 break 
                 
         if(index == -1):
-            print("Libro non prestato in precedenza!")
+            print("Libro non trovato!")
         else:    
             if(self.Books[index].get_copie_in_prestito() > 0  ):
                 print("Il prezzo da pagare è:", self.Books[index].costo_prestito(giorni_prestito) , "$" )
                 self.Books[index].set_copie_in_prestito(self.Books[index].get_copie_in_prestito() - 1)
                 print("Libro riconsegnato!")
             else:
-                print("Il libro non è mai stato prestato!")
+                print(f"Il libro {self.Books[index].titolo} non è mai stato prestato!")
 
 
 #Elenco dei libri divisi per sezione            
@@ -336,7 +336,7 @@ class Biblioteca():
 
 ######
 Bib = Biblioteca(Books_list)
-Bib.prendi_in_prestito("Kipps")
+Bib.prendi_in_prestito("Harry Potter and the Prisoner of Azkaban")
 Bib.restituisci_libro_prestito("Kipps",15)
 
 #Bib.ricerca_per_genere("DramA")
