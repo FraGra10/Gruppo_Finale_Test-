@@ -2,7 +2,6 @@ import pandas as pd
 from abc import ABC, abstractmethod
 from datetime import date
 
-
 df = pd.read_csv("books.csv")
 
 Rare_books  = df[df["section"] == "Rare Books"]
@@ -350,13 +349,16 @@ class Biblioteca():
 
 #Ricerca dei libri per titolo, scaffale e genere    
     def ricerca_per_titolo_scaffale_riga(self,titolo):
-        
+        ind =  0 
         for y in range(len(self.Books)):
             if(self.Books[y].titolo.lower() == titolo.lower()):
                 print("Il libro da te cercato è: ",self.Books[y])
                 print("Lo puoi trovare nello scaffale: ", self.Books[y].scaffale, "alla riga : ",self.Books[y].riga, "posizione numero: ", self.Books[y].numero_riga )
+                ind = 1 
                 break
-            
+        if(ind == 0):
+            print("Libro non trovato!")
+        
 #Ordinamento dei libri per rating e stampa dei primi 100 libri                                 
     def ordinamento_per_rating(self):
         ordinati = sorted(self.Books, key=lambda libro: libro.rating, reverse=True)
@@ -382,7 +384,7 @@ Bib = Biblioteca(Books_list)
 #Bib.restituisci_libro_prestito("Harry potter and the prisoner of azkaban",15)
 
 #Bib.ricerca_per_sezione("Rare Books")
-#Bib.ricerca_per_titolo_scaffale_riga("The Hobbit (1st Edition)")
+Bib.ricerca_per_titolo_scaffale_riga("Harry potter and the prisoner of azkaban")
 #Bib.ordinamento_per_rating()
 #Bib.valore_totale()
     
