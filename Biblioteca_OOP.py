@@ -54,7 +54,8 @@ class Libro(ABC):
         self.riga = riga 
         self.numero_riga = numero_riga
         self.__copie_in_prestito = 0 
-        
+    
+    #metodi astratti da ridefinire nelle classi figlie    
     @abstractmethod
     def sezione_libro(self):
         print("Questo è un libro!")
@@ -63,26 +64,31 @@ class Libro(ABC):
     def prestabile(self):
         """True se il libro può uscire dalla biblioteca."""
         pass   
-        
+    
+    #numero di copie del libro
     def get_numero_copie(self):
         return self.copie_totali
     
+    #numero di copie in prestito del libro 
     def get_copie_in_prestito(self):
         return self.__copie_in_prestito
     
+    #registrazione di un prestito 
     def registra_prestito(self):
         self.__copie_in_prestito += 1
         self.data_ultimo_prestito = date.today().strftime("%m/%d/%Y")
     
+    # get delle copie ancora disponibili
     def get_copie_disponibili(self):
                     
         return self.copie_totali - self.__copie_in_prestito
 
+    #print associato alla classe
     def __str__(self):
         return f"{self.titolo} di {self.autore} ({int(self.anno_pubblicazione)}) - Sezione: {self.sezione}"
            
 
-#definizione delle classi figlie        
+#definizione delle classi figlie rappresentanti le cinque sezioni         
 class FictionBook(Libro):
 
     def __init__(self,titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
@@ -255,11 +261,15 @@ class Biblioteca():
                 print("Il libro da te cercato è: ",self.Books[y])
                 print("Lo puoi trovare allo scaffale: ", self.Books[y].scaffale, "alla riga : ",self.Books[y].riga, " alla posizione numero: ", self.Books[y].numero_riga )
                                
+    def ordinamento_per_rating(self):
         
+        for y in range(len(self.Books)):
+            print(self.Books[y].rating)
 
 Bib = Biblioteca(Books_list)
 #Bib.prendi_in_prestito()
 
 #Bib.ricerca_per_sezione("Reference")
-Bib.ricerca_per_titolo_scaffale_riga("Spaceman")
+#Bib.ricerca_per_titolo_scaffale_riga("Catching Fire")
+Bib.ordinamento_rating()
     
