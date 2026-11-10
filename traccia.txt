@@ -17,10 +17,10 @@ Fase 1.
     
     -date dei prestiti in quali mesi si verificano piu prestiti, mostrare con grafico
 
-    -pivot table con genere per sezione che vengono valutati per quante volte sono stati presi in prestito
-
-    -Matplotlib:grafico dei 10 libri più letti che rating hanno con la media
+    -Plotly:grafico della correlazione tra numeri di prestiti e e rating
     
+    -pivot table con genere per sezione che vengono valutati per quante volte sono stati presi in prestito
+ 
     -Il rating in base al genere con groupby
     
     -valutare se fare una dashboard opzionale
@@ -28,31 +28,46 @@ Fase 1.
 Nota:    Times Borrowed è il numero di volte in cui un libro è stato preso in prestito
 ---------------------------------------------------------------------
 FASE 2.
-Definizione di una classe padre "Libro" con attributi ottenuti dal file CSV books.csv 
+Definizione di una classe astratta padre "Libro" con attributi ottenuti dal file CSV books.csv 
 
-La classe padre avrà come attributi: titolo del libro, autore, anno di pubblicazione, genere, sezione, lingua, numero di pagine, prezzo,
-copie totali.
+La classe padre avrà come attributi: titolo,autore,anno_pubblicazione,genere,sezione,copie_totali,numero_prestiti,
+data_ultimo_prestito, rating, rating_count, prezzo, lingua, numero_pagine,lunghezza, spessore, altezza,scaffale, 
+riga, numero_riga
 
-La classe padre avrà come metodi: 
-borrow(), return_copy(), 
-available_copies(), 
-is_available(),
-loan_days (durata del prestito)
-is_loanable()
+La classe padre avrà come metodi : 
+sezione_libro()
+prestabile()
+costo_prestito()
+get_numero_copie()
+get_copie_in_prestito()
+get_copie_disponibili()
+registra_prestito()
+__str__() per la stampa 
+
 
 Le classi figlie saranno definite in base ai valori di "sezione" ottenute da file csv. 
 In particolare avremo le classi figlie: 
 FictionBook, NonFictionBook,Children Book, YoungAdultBook, ReferenceBook.
 
 tutti gli oggetti appartenenti alle classi saranno inseriti in una lista, in modo da accedere agli elementi e ad avere output 
-diversi in base alle funzioni appartenenti a ciascuna classe (Polimorfismo)
+diversi in base alle funzioni appartenenti a ciascuna classe (Polimorfismo).
 
-#Definizione della classe Biblioteca 
+Le funzioni ridefinite nelle classi figlie saranno:
+costo_prestito()
+sezione_libro()
+prestabile()
 
-ricerca per titolo, autore, genere, sezione;
-classifiche: più prestati, meglio valutati, più recenti;
-statistiche: numero di libri per tipo, valore totale del catalogo;
-prestito e restituzione per titolo o per codice, che delegano al libro (e quindi al polimorfismo).
+
+#Definizione della classe Biblioteca
+
+La classe biblioteca ha come attributo una lista di oggetti, in particolare una lista di libri e permettere di eseguire le 
+seguenti operazioni:
+
+ricerca per titolo, autore, genere, sezione,scaffale e riga;
+classifiche: meglio valutati, 
+statistiche: valore totale del catalogo
+prestito per titolo.
+restituzione per titolo e giorni di prestito 
 
 ----------------------------------------------------------------------
 
