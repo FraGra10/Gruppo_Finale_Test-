@@ -211,20 +211,3 @@ def raccomanda_libri(df, titolo_ricerca):
             print(f"- '{titolo_rec}' di {autore_rec} (Affinità: {round(score * 100, 1)}%)")
 
 
-# BLOCCO DI TEST / ESECUZIONE DI PROVA
-# Leggiamo il dataset CSV iniziale tramite pandas
-df_libri = pd.read_csv("books.csv")
-print(f"Dataset caricato con successo! {len(df_libri)} libri trovati.")
-
-# 1. Avviamo la funzione di Clustering K-Means e visualizzazione PCA
-df_risultato, modello_kmeans, scaler = esegui_clustering(df_libri, n_clusters=4)
-
-# 2. Addestriamo i modelli di regressione e otteniamo il modello lineare
-modello_predittivo = addestra_modello_predizione(df_libri)
-
-# 3. Facciamo un test stimando i prestiti per un libro inventato (anno 2021, 18.5€, 350 pag, 4.2 rating, 120 voti)
-stima = prevedi_nuovo_libro(modello_predittivo, anno=2021, prezzo=18.5, pagine=350, rating=4.2, num_voti=120)
-print(f"\nStima prestiti per il nuovo libro: {stima}")
-
-# 4. Facciamo un test chiedendo al sistema di raccomandazione 3 libri simili a "Harry"
-raccomanda_libri(df_libri, titolo_ricerca="Harry")

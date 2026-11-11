@@ -1,15 +1,70 @@
-# Importazione
+# Importazione dei moduli del progetto
 import Biblioteca_OOP as go
 import mlbiblioteca as ml
-import analisi as ad
+import analisi as ad 
 
+
+def menu_oggetti():
+    """Sottomenu dedicato alla Gestione Biblioteca con Programmazione ad Oggetti (OOP)."""
+    mentre_in_oop = True
+    while mentre_in_oop:
+        print("\n--- MENU: PROGRAMMAZIONE AD OGGETTI (OOP) ---")
+        print("1. Cerca posizione libro (Titolo, Scaffale e Riga)")
+        print("2. Prendi in prestito un libro")
+        print("3. Restituisci un libro prestato (con calcolo costo)")
+        print("4. Ricerca libri per Sezione")
+        print("5. Ricerca libri per Autore")
+        print("6. Ricerca libri per Genere")
+        print("7. Mostra Top 100 libri ordinati per Rating")
+        print("8. Calcola il Valore Totale dei libri in Biblioteca")
+        print("0. Torna al Menu Principale")
+        
+        scelta = input("\nSeleziona un'opzione: ").strip()
+        
+        if scelta == '1':
+            titolo = input("Inserisci il titolo del libro: ").strip()
+            go.Bib.ricerca_per_titolo_scaffale_riga(titolo)
+            
+        elif scelta == '2':
+            titolo = input("Inserisci il titolo del libro da prendere in prestito: ").strip()
+            go.Bib.prendi_in_prestito(titolo)
+            
+        elif scelta == '3':
+            titolo = input("Inserisci il titolo del libro da restituire: ").strip()
+            giorni = int(input("Inserisci il numero di giorni di prestito: "))
+            go.Bib.restituisci_libro_prestito(titolo, giorni)
+            
+        elif scelta == '4':
+            sezione = input("Inserisci la sezione (es. Fiction, Non-Fiction, Children, Young Adult, Reference, Rare Books): ").strip()
+            go.Bib.ricerca_per_sezione(sezione)
+            
+        elif scelta == '5':
+            autore = input("Inserisci il nome dell'autore: ").strip()
+            go.Bib.ricerca_per_autore(autore)
+            
+        elif scelta == '6':
+            genere = input("Inserisci il genere (es. Fantasy, History, Science...): ").strip()
+            go.Bib.ricerca_per_genere(genere)
+            
+        elif scelta == '7':
+            print("\n--- TOP 100 LIBRI PER RATING ---")
+            go.Bib.ordinamento_per_rating()
+            
+        elif scelta == '8':
+            print("\n--- VALORE TOTALE PATRIMONIALE ---")
+            go.Bib.valore_totale()
+            
+        elif scelta == '0':
+            mentre_in_oop = False
+        else:
+            print("Opzione non valida. Scegli un numero da 0 a 8.")
 
 
 def menu_analisi_dati():
     """Sottomenu dedicato all'Analisi dei Dati."""
     mentre_in_analisi = True
     while mentre_in_analisi:
-        print("\n--- MENU: ANALISI DEI DATI---")
+        print("\n--- MENU: ANALISI DEI DATI ---")
         print("1. Esplorazione iniziale (shape, info, describe, head)")
         print("2. Pulizia del dataset (uniformazione sezioni, duplicati, nulli)")
         print("3. Grafico a Torta: Top 10 generi più presi in prestito")
@@ -70,7 +125,6 @@ def menu_machine_learning():
             rating = float(input("Rating (es. 4.2): "))
             voti = float(input("Numero di voti/recensioni (es. 120): "))
             
-            # Addestra il modello al momento e calcola subito la stima
             modello = ml.addestra_modello_predizione(ad.df)
             stima = ml.prevedi_nuovo_libro(modello, anno, prezzo, pagine, rating, voti)
             print(f"\n-> Risultato: Il libro otterrà circa {stima} prestiti totali.")
@@ -84,6 +138,7 @@ def menu_machine_learning():
         else:
             print("Opzione non valida. Scegli un numero da 0 a 4.")
 
+
 def menu_principale():
     """Menu principale che collega tutte le sezioni."""
     attivo = True
@@ -91,7 +146,7 @@ def menu_principale():
         print("\n========================================")
         print("    SISTEMA DI GESTIONE & ANALISI LIBRI   ")
         print("========================================")
-        print("1. Modulo 1: Creazione ad Oggetti")
+        print("1. Modulo 1: Programmazione ad Oggetti (OOP)")
         print("2. Modulo 2: Analisi Dati & Visualizzazione")
         print("3. Modulo 3: Machine Learning")
         print("0. Uscita")
@@ -113,4 +168,4 @@ def menu_principale():
 
 
 # Avvio del menu
-menu_principale() 
+menu_principale()
