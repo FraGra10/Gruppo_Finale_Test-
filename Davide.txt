@@ -1,0 +1,25 @@
+Modulo 3: Machine Learning 
+
+"Il terzo modulo è il cuore predittivo del sistema e si divide in tre parti principali: 
+
+Clustering Non Supervisionato (K-Means & PCA): Abbiamo standardizzato le variabili numeriche con StandardScaler e applicato il K-Means con $K=4$ e n_init=10 per identificare i gruppi naturali all'interno della biblioteca. Poiché lavoravamo su un dominio a 4 dimensioni, abbiamo implementato la PCA  per ridurre le feature a 2 componenti principali (PC1 e PC2). Nel grafico generato si distinguono chiaramente i vari gruppi: dai libri standard al centro, ai Bestseller ad alto scorrimento a destra, fino agli outlier di prezzo isolati nella parte alta dell'asse PC2.  
+
+Apprendimento Supervisionato (Regressione): Abbiamo sviluppato un modulo per stimare il numero di prestiti futuri di un libro. Abbiamo suddiviso i dati in Train (80%) e Test (20%) e messo a confronto una Regressione Lineare con un Decision Tree Regressor. L'Albero di Decisione si è dimostrato nettamente migliore, registrando un errore medio assoluto di soli 9.28 prestiti contro i 32.6 del modello lineare, dimostrando di cogliere meglio le relazioni non lineari tra prezzo, recensioni e numero di pagine. Tramite il menu è anche possibile fare inferenza in tempo reale inserendo i dati di un nuovo libro.  
+
+Sistema di Raccomandazione: Infine, abbiamo implementato un motore di raccomandazione  basato sulla Cosine Similarity. Inserendo un titolo di ricerca, il sistema calcola la vicinanza nello spazio vettoriale numerico e suggerisce all'utente i 3 libri maggiormente affini presenti in catalogo." 
+
+ 
+
+Modulo 3: Menù 
+
+Gestione del Flusso di Esecuzione: 
+
+Il menu_principale() fa da punto d'ingresso unico. Utilizza un ciclo continuo while che mantiene l'applicazione attiva finché l'utente non seleziona esplicitamente l'opzione di uscita 0. Questo evita che lo script si chiuda dopo una singola operazione. 
+
+Sottomenu Modulari: L'utente può navigare in tre sezioni distinte: 
+
+Modulo OOP (menu_oggetti): Interagisce direttamente con l'istanza globale della classe Biblioteca, richiamando i metodi di gestione del catalogo, prestiti e ricerca per scaffale. 
+
+Modulo Analisi (menu_analisi_dati): Permette di avviare singolarmente sia la pulizia dei dati sia la generazione dei grafici statici (Matplotlib) e interattivi (Plotly). 
+
+Modulo Machine Learning (menu_machine_learning): Coordina le operazioni predittive. Quando l'utente chiede una previsione per un nuovo libro (opzione 3), il menu raccoglie i 5 parametri numerici in ingresso, addestra il modello di regressione su ad.df e restituisce all'istante la stima dei prestiti. 
