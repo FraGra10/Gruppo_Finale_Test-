@@ -1,0 +1,284 @@
+Il programma realizza un sistema per gestire una biblioteca virtuale. 
+In particolare, permette di catalogare i libri, dividerli in categorie, 
+controllare quali sono disponibili per il prestito, registrare le restituzioni, 
+effettuare ricerche e calcolare il valore economico dell'intero catalogo.
+
+Il programma utilizza la programmazione orientata agli oggetti (OOP), 
+attraverso una classe generale chiamata Libro, diverse classi specifiche per le categorie di libri
+ e una classe Biblioteca che gestisce tutte le operazioni.
+
+------------------------------------------------------------------------------------------------------------------------------------
+All'inizio vengono importate tre librerie:
+
+Pandas: serve per leggere e manipolare i dati contenuti nel file CSV.
+
+ABC: permette di creare classi astratte, cioè classi che definiscono una struttura comune per altre classi.
+
+Date: permette di lavorare con le date, in particolare di registrare il giorno in cui viene effettuato un prestito.
+
+Successivamente viene caricato il file books.csv, che contiene tutte le informazioni relative ai libri della biblioteca.
+
+
+Il programma :
+
+Isola temporaneamente tutti i libri appartenenti alla sezione Rare Books.
+
+Rimuove dal dataset principale tutti i libri di questa sezione.
+
+Elimina le righe che contengono almeno un valore mancante.
+
+Riaggiunge i libri rari precedentemente isolati.
+
+L'obiettivo è evitare che i libri appartenenti alla sezione Rare Books vengano eliminati durante la pulizia dei dati.
+
+In questo modo, il programma conserva tutti i libri rari anche se presentano alcuni valori mancanti, mentre elimina 
+dal resto del catalogo le righe incomplete.
+
+È una scelta importante perché i libri rari possono avere caratteristiche particolari e si vuole evitare di 
+perderli durante la preparazione del dataset.
+
+Dopo aver preparato il dataset, il programma estrae ogni colonna e la trasforma in una lista Python.
+
+Vengono create liste contenenti:
+
+Titoli dei libri,Autori,Anni di pubblicazione,Generi,Sezioni,Numero totale di copie,Numero di prestiti effettuati,Data dell'ultimo prestito
+Valutazioni e numero di recensioni,Prezzo,Lingua,Numero di pagine,Dimensioni fisiche del libro,Posizione del libro all'interno della biblioteca
+
+Avere tutte le informazioni organizzate in liste permette di recuperare facilmente i dati 
+di un determinato libro utilizzando la stessa posizione in ciascuna lista.
+
+
+Viene definita una classe chiamata Libro, che rappresenta la struttura generale che tutti i libri della biblioteca devono avere.
+
+La classe è astratta perché non vuole rappresentare direttamente una categoria specifica di libro,
+ ma vuole fornire una struttura comune alle diverse categorie.
+
+Il costruttore riceve tutte le informazioni relative a un libro e le memorizza nei suoi attributi.
+
+Per esempio, ogni libro avrà:
+
+Un titolo.
+
+Un autore.
+
+Un anno di pubblicazione.
+
+Una sezione.
+
+Un prezzo.
+
+Un numero di copie.
+
+Una posizione sugli scaffali.
+
+In questo modo ogni oggetto libro conserva autonomamente tutte le proprie informazioni.
+
+La classe definisce tre metodi astratti:
+
+sezione_libro(): serve a identificare la tipologia del libro.
+
+prestable(): stabilisce se il libro può essere preso in prestito.
+
+costo_prestito(): calcola il costo del prestito in funzione del numero di giorni.
+
+Sono metodi astratti perché la classe generale non stabilisce ancora quale comportamento debbano avere nelle singole categorie.
+
+Saranno le classi figlie a definirne concretamente il funzionamento.
+
+Gli altri metodi della classe Libro
+La classe contiene anche diversi metodi già implementati.
+
+get_numero_copie(): restituisce il numero totale di copie del libro.
+
+get_copie_in_prestito(): restituisce il numero di copie attualmente prestate.
+
+set_copie_in_prestito(): permette di modificare il numero di copie in prestito.
+
+registra_prestito(): aumenta di una unità il numero delle copie in prestito e aggiorna la data dell'ultimo prestito.
+
+get_copie_disponibili(): calcola quante copie sono ancora disponibili.
+
+La disponibilità viene calcolata sottraendo le copie in prestito dal numero totale di copie.
+
+Infine, il metodo __str__() stabilisce come deve essere visualizzato un libro quando viene stampato.
+
+In particolare, mostra il titolo, l'autore, l'anno di pubblicazione e la sezione di appartenenza.
+
+Dopo aver definito la classe generale Libro, il programma crea sei classi figlie.
+
+Queste classi rappresentano le diverse sezioni della biblioteca:
+
+FictionBook: libri di narrativa.
+
+NonFictionBook: libri di saggistica.
+
+ChildrenBook: libri per bambini.
+
+YoungAdultBook: libri per ragazzi.
+
+ReferenceBook: opere di consultazione.
+
+RareBook: libri rari.
+
+Tutte queste classi ereditano dalla classe Libro.
+
+Ogni classe definisce i propri metodi per calcolare il costo del prestito e la sezione di appartenenza.
+
+Viene creata una lista chiamata Books_list, inizialmente vuota.
+
+Successivamente esegue un ciclo che scorre tutti i libri presenti nel dataset.
+
+Per ogni libro controlla il valore della sezione di appartenenza e decide quale classe utilizzare.
+
+
+Se la sezione è Young Adult oppure Young Adult (YA), crea un oggetto della classe YoungAdultBook.
+
+Se la sezione è Reference, crea un oggetto ReferenceBook.
+
+Se la sezione corrisponde a una delle categorie dedicate ai bambini, crea un oggetto ChildrenBook.
+
+Se la sezione è Non-Fiction, Humanities, History oppure Science, crea un oggetto NonFictionBook.
+
+Se la sezione è Rare Books, crea un oggetto RareBook.
+
+In tutti gli altri casi crea un oggetto FictionBook.
+
+Alla fine del ciclo, la lista contiene tutti i libri della biblioteca, 
+ognuno rappresentato da un oggetto appartenente alla propria categoria.
+
+Viene definita la classe Biblioteca.
+
+Questa classe rappresenta la biblioteca vera e propria e ha il compito di gestire l'intero catalogo.
+
+Il suo costruttore riceve la lista Books_list e la memorizza in un attributo chiamato Books.
+
+In questo modo la biblioteca possiede una raccolta di oggetti libro sulla quale può eseguire diverse operazioni.
+
+La classe contiene le principali funzionalità del programma:
+1) Prendere in prestito un libro: 
+Il metodo prendi_in_prestito() permette all'utente di richiedere un libro inserendone il titolo.
+
+Il funzionamento è il seguente:
+
+Il programma cerca il libro all'interno della lista della biblioteca.
+
+Confronta il titolo inserito dall'utente con i titoli presenti nel catalogo.
+
+Se il libro non viene trovato, comunica che il libro non esiste nel catalogo.
+
+Se viene trovato, ne mostra le informazioni.
+
+Controlla se il libro può essere prestato e se sono disponibili delle copie.
+
+A questo punto possono verificarsi due situazioni.
+
+Primo caso: il libro è prestabile e sono disponibili delle copie.
+
+Il programma comunica che il libro può essere preso in prestito e richiama il metodo che registra il prestito.
+
+Questo comporta l'aumento del numero delle copie in prestito e l'aggiornamento della data dell'ultimo prestito.
+
+Secondo caso: il libro non può essere prestato oppure non ci sono copie disponibili.
+
+Il programma comunica che il prestito non è possibile e specifica il motivo.
+
+Se il libro è un'opera di consultazione o un libro raro, comunica che può essere utilizzato soltanto all'interno della biblioteca.
+
+Se invece le copie disponibili sono terminate, comunica che non ci sono più copie disponibili.
+
+2)Restituire un libro
+
+Il metodo restituisci_libro_prestito() gestisce la restituzione di un libro.
+
+Riceve due informazioni:
+
+Il titolo del libro.
+
+Il numero di giorni per cui è stato tenuto in prestito.
+
+Anche in questo caso il programma cerca il libro all'interno del catalogo.
+
+Se non lo trova, comunica che il libro non è presente.
+
+Se lo trova, verifica che esista almeno una copia attualmente in prestito.
+
+Se la condizione è soddisfatta, esegue tre operazioni:
+
+Calcola il costo del prestito in base alla categoria del libro e ai giorni indicati.
+
+Mostra il costo da pagare.
+
+Diminuisce di una unità il numero delle copie in prestito e comunica che il libro è stato restituito.
+
+Se invece non risulta nessuna copia in prestito, il programma comunica che il libro non è mai stato prestato.
+
+3) Ricerca per sezione
+
+Il metodo ricerca_per_sezione() permette di visualizzare tutti i libri appartenenti a una determinata sezione.
+
+L'utente inserisce il nome della sezione e il programma scorre l'intero catalogo.
+
+Ogni volta che trova un libro appartenente alla sezione richiesta, ne stampa le informazioni.
+
+
+4) Ricerca per autore
+Il metodo ricerca_per_autore() funziona in maniera simile al precedente.
+
+La differenza è che il programma confronta il nome dell'autore inserito dall'utente con quello memorizzato negli oggetti libro.
+
+Se trova una corrispondenza, stampa il libro.
+
+Quindi permette di ottenere l'elenco dei libri scritti da uno specifico autore.
+
+5) Ricerca per genere
+Il metodo ricerca_per_genere() permette di cercare tutti i libri appartenenti a un determinato genere letterario.
+
+Per esempio, si può cercare un genere come Fantasy, Thriller oppure Romance.
+
+Il programma confronta il genere richiesto con quello di ciascun libro e stampa tutti i risultati corrispondenti.
+
+6) Ricerca della posizione di un libro
+Il metodo ricerca_per_titolo_scaffale_riga() permette di individuare fisicamente un libro all'interno della biblioteca.
+
+L'utente inserisce il titolo e il programma cerca la corrispondenza nel catalogo.
+
+Se il libro viene trovato, mostra:
+
+Il titolo e le informazioni principali.
+
+Lo scaffale in cui si trova.
+
+La riga dello scaffale.
+
+Il numero della posizione.
+
+Questa funzione è particolarmente utile perché non si limita a identificare un libro, ma permette anche di sapere dove andare a cercarlo fisicamente.
+
+Se il libro non viene trovato, viene visualizzato un messaggio di errore.
+
+7) Ordinamento per valutazione
+Il metodo ordinamento_per_rating() ordina tutti i libri in base alla loro valutazione.
+
+Utilizza un ordinamento decrescente, quindi i libri con il rating più alto vengono posizionati prima.
+
+Successivamente stampa soltanto i primi 100 risultati.
+
+Per ogni libro visualizza il titolo e la relativa valutazione.
+
+Questa funzione permette quindi di individuare i 100 libri meglio valutati del catalogo.
+
+8) Calcolo del valore totale della biblioteca
+L'ultimo metodo è valore_totale().
+
+Il suo obiettivo è calcolare il valore economico complessivo di tutti i libri presenti nella biblioteca.
+
+Per ogni libro moltiplica:
+
+Il prezzo di una singola copia.
+
+Il numero totale delle copie disponibili nel catalogo.
+
+Successivamente somma tutti i risultati ottenuti.
+
+Alla fine stampa il valore economico totale.
+

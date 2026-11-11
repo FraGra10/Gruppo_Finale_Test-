@@ -375,7 +375,57 @@ class Biblioteca():
         print("Il valore totale dei libri presenti in Biblioteca è pari a :", round(somma_prezzi,3) , "$")
 
 
+'''
+#Menu della biblioteca 
+def menu():
+    
+    Bib = Biblioteca(Books_list)
+    
+    print(" ")
+    print("#########################################################\n",
+          "####### Benvenuti nella biblioteca virtuale ########\n",
+        "########################################################")
 
+#Ciclo principale con le varie operazioni da eseguire     
+    while(True):
+        
+        print("")
+        print("Digita 1 per prendere in prestito un libro, 2 per restituire un libro")
+        print("Digita 3 per elencare i libri divisi per sezione, 4 per autore, 5 per genere")
+        print("Digita 6 per ricercare per titolo, scaffale e riga")
+        print("Digita 7 per visualizzare i primi 100 libri ordinati per rating")
+        print("Digita 8 per stampare il valore totale del catalogo")
+        print("Digita 9 per uscire dal menu: \n")
+        op = int(input(""))
+    
+    
+        if(op == 1):
+            nome_libro = input("Inserisci nome del libro da prendere in prestito: ")
+            Bib.prendi_in_prestito(nome_libro)
+        if(op == 2):
+            nome_libro     = input("Inserisci nome del libro da restituire: ")
+            numero_giorni = int(input("Inserisci numero di giorni del prestito: "))
+            Bib.restituisci_libro_prestito(nome_libro,numero_giorni)
+        if(op == 3):
+            nome_sezione = input("Inserisci nome della sezione:")
+            Bib.ricerca_per_sezione(nome_sezione)
+        if(op == 4):
+            nome_autore = input("Inserisci nome dell'autore:")
+            Bib.ricerca_per_autore(nome_autore)        
+        if(op == 5):
+            nome_genere = input("Inserisci nome del genere:")
+            Bib.ricerca_per_genere(nome_genere)
+        if(op == 6):
+            nome_libro = input("Inserisci nome del libro da individuare:")
+            Bib.ricerca_per_titolo_scaffale_riga(nome_libro)        
+        if(op == 7):
+            Bib.ordinamento_per_rating()        
+        if(op == 8):
+            Bib.valore_totale()
+        if(op == 9):
+            break      
+'''
+#menu()
 
 
 ######
@@ -384,7 +434,7 @@ Bib = Biblioteca(Books_list)
 #Bib.restituisci_libro_prestito("Harry potter and the prisoner of azkaban",15)
 
 #Bib.ricerca_per_sezione("Rare Books")
-Bib.ricerca_per_titolo_scaffale_riga("Harry potter and the prisoner of azkaban")
+#Bib.ricerca_per_titolo_scaffale_riga("Harry potter and the prisoner of azkaban")
 #Bib.ordinamento_per_rating()
 #Bib.valore_totale()
     

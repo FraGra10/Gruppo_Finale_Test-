@@ -47,7 +47,7 @@ __str__() per la stampa
 
 Le classi figlie saranno definite in base ai valori di "sezione" ottenute da file csv. 
 In particolare avremo le classi figlie: 
-FictionBook, NonFictionBook,Children Book, YoungAdultBook, ReferenceBook.
+FictionBook, NonFictionBook,Children Book, YoungAdultBook, ReferenceBook e Rare Book
 
 tutti gli oggetti appartenenti alle classi saranno inseriti in una lista, in modo da accedere agli elementi e ad avere output 
 diversi in base alle funzioni appartenenti a ciascuna classe (Polimorfismo).
