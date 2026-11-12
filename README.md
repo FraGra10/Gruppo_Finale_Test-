@@ -50,13 +50,13 @@ Il progetto è interamente sviluppato in **Python**[cite: 6] e strutturato secon
 
 | Parte | Tecnologia |
 | :--- | :--- |
-| **Linguaggio Core** | Python 3.10+[cite: 6] |
-| **Interfaccia Utente (CLI)** | Python Standard Library (`input` / `print` loop)[cite: 3] |
+| **Linguaggio Core** | Python 3.10+|
+| **Interfaccia Utente (CLI)** | Python Standard Library (`input` / `print` loop)|
 | **Logica & Architettura** | Programmazione ad Oggetti (OOP, modulo `abc`) |
-| **Data Analysis & Cleaning** | Pandas, NumPy[cite: 2, 6] |
-| **Data Visualization** | Matplotlib (grafici statici), Plotly Express (grafici interattivi)[cite: 6] |
-| **Machine Learning** | Scikit-learn (`KMeans`, `PCA`, `LinearRegression`, `DecisionTreeRegressor`, `cosine_similarity`)[cite: 2, 6] |
-| **Storage / Database** | File strutturati CSV (`books.csv`, `libri_con_cluster.csv`)[cite: 2, 11] |
+| **Data Analysis & Cleaning** | Pandas |
+| **Data Visualization** | Matplotlib (grafici statici), Plotly Express (grafici interattivi)|
+| **Machine Learning** | Scikit-learn (`KMeans`, `PCA`, `LinearRegression`, `DecisionTreeRegressor`, `cosine_similarity`)|
+| **Storage / Database** | File strutturati CSV (`books.csv`, `libri_con_cluster.csv`)|
 
 
 
