@@ -28,7 +28,6 @@
    - [Modulo 1: Programmazione ad Oggetti (OOP)](#1-modulo-oop-biblioteca_ooppy)
    - [Modulo 2: Analisi Esplorativa dei Dati (EDA)](#2-modulo-analisi-dati-analisibibliotecadfpy)
    - [Modulo 3: Machine Learning & Sistemi Predittivi](#3-modulo-machine-learning-mlbibliotecapy)
-
 4. [Risultati Sperimentali e Grafici](#-risultati-sperimentali-e-grafici)
 5. [Installazione ed Esecuzione](#-installazione-ed-esecuzione)
 6. [Struttura della Repository](#-struttura-della-repository)
@@ -43,6 +42,23 @@ Il software copre l'intero ciclo di vita del dato:
 * **Gestione Operativa:** Modellazione ad oggetti del catalogo, dei prestiti, delle restituzioni e della collocazione fisica sugli scaffali.
 * **Business Intelligence & EDA:** Pulizia del dataset (`books.csv`) e visualizzazione statistica tramite grafici statici e interattivi.
 * **Intelligenza Artificiale:** Segmentazione automatica dei volumi, previsione dei prestiti futuri per ottimizzare gli acquisti e motore di raccomandazione per gli utenti.
+
+
+## 🛠️ Stack tecnologico
+
+Il progetto è interamente sviluppato in **Python**[cite: 6] e strutturato secondo un'architettura modulare: un'interfaccia testuale (**CLI**) gestisce l'interazione con l'utente, mentre tre moduli specializzati elaborano la logica ad oggetti, l'analisi statistica e gli algoritmi predittivi su file CSV[cite: 2, 3, 6].
+
+| Parte | Tecnologia |
+| :--- | :--- |
+| **Linguaggio Core** | Python 3.10+[cite: 6] |
+| **Interfaccia Utente (CLI)** | Python Standard Library (`input` / `print` loop)[cite: 3] |
+| **Logica & Architettura** | Programmazione ad Oggetti (OOP, modulo `abc`) |
+| **Data Analysis & Cleaning** | Pandas, NumPy[cite: 2, 6] |
+| **Data Visualization** | Matplotlib (grafici statici), Plotly Express (grafici interattivi)[cite: 6] |
+| **Machine Learning** | Scikit-learn (`KMeans`, `PCA`, `LinearRegression`, `DecisionTreeRegressor`, `cosine_similarity`)[cite: 2, 6] |
+| **Storage / Database** | File strutturati CSV (`books.csv`, `libri_con_cluster.csv`)[cite: 2, 11] |
+
+
 
 ---
 
