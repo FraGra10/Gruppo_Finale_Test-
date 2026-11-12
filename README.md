@@ -12,10 +12,10 @@
 
 | Membro del Team | Ruolo nel Progetto | Contatto |
 | :--- | :--- | :---: |
-| **Alessandro Moceri** | Programmazione ad Oggetti (OOP) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/LINK-ALESSANDRO/) |
-| **Alessia Mori** | Analisi Dati & Visualizzazione (EDA) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/LINK-ALESSIA/) |
-| **Davide Fioretti** | Machine Learning & Sistemi Predittivi | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/LINK-DAVIDE/) |
-| **Francesco Grasso** | Architettura, Integrazione & Menu CLI | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francesco-grasso-36027437b/) |
+| **Alessandro Moceri** | Architettura e struttura Grafica | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alessandro-moceri-40950122b/) |
+| **Alessia Mori** | Analisi Dati & Visualizzazione | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alessia-mori-/) |
+| **Davide Fioretti** | Machine Learning & Sistemi Predittivi & Menu| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/davide-fioretti-4724892b3/) |
+| **Francesco Grasso** | Programmazione ad Oggetti (OOP), | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francesco-grasso-36027437b/) |
 
 </div>
 
