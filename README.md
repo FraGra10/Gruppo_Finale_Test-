@@ -46,7 +46,7 @@ Il software copre l'intero ciclo di vita del dato:
 
 ## 🛠️ Stack tecnologico
 
-Il progetto è interamente sviluppato in **Python**[cite: 6] e strutturato secondo un'architettura modulare: un'interfaccia testuale (**CLI**) gestisce l'interazione con l'utente, mentre tre moduli specializzati elaborano la logica ad oggetti, l'analisi statistica e gli algoritmi predittivi su file CSV[cite: 2, 3, 6].
+Il progetto è interamente sviluppato in **Python** e strutturato secondo un'architettura modulare: un'interfaccia testuale (**CLI**) gestisce l'interazione con l'utente, mentre tre moduli specializzati elaborano la logica ad oggetti, l'analisi statistica e gli algoritmi predittivi su file CSV.
 
 | Parte | Tecnologia |
 | :--- | :--- |
