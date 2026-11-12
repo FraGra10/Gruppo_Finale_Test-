@@ -51,7 +51,6 @@ Il progetto è interamente sviluppato in **Python**[cite: 6] e strutturato secon
 | Parte | Tecnologia |
 | :--- | :--- |
 | **Linguaggio Core** | Python 3.10+|
-| **Interfaccia Utente (CLI)** | Python Standard Library (`input` / `print` loop)|
 | **Logica & Architettura** | Programmazione ad Oggetti (OOP, modulo `abc`) |
 | **Data Analysis & Cleaning** | Pandas |
 | **Data Visualization** | Matplotlib (grafici statici), Plotly Express (grafici interattivi)|
