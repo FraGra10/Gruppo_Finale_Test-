@@ -334,28 +334,37 @@ con la media per i dati numerici o con la moda per i dati di tipo oggetto, l'ana
 
 Dopo questa operazione abbiamo verificato quante righe erano rimaste.
 
-Per quanto riguarda la terza fase, la VISUALIZZAZIONE DEI DATI, abbiamo cominciato a farmi domande su quali fossero le cose 
-che potevano essere le più utili, per qunato riguarda la biblioteca.
+Per quanto riguarda la terza fase, la VISUALIZZAZIONE DEI DATI, abbiamo cominciato a farci domande su quali fossero le cose 
+che potevano essere le più utili, per quanto riguarda la biblioteca.
 
-Qual è il genere più popolare? Il motivo è che questo potrebbe essere utile per investire più soldi in un genere popolare.
+TORTA: Qual è il genere più popolare? Il motivo è che questo potrebbe essere utile per investire più soldi in un genere popolare.
 
 Per fare questo, abbiamo tenuto conto della colonna times borrowed, che rappresenta quante volte un libro è stato preso in prestito. 
 abbiamo creato un grafico a torta, inizialmente che raggruppava tutti i generi, ma essendocene tantissimi e con percentuali 
 molto basse di popolarità, abbiamo preferito mostrare la top 10 dei generi più popolari. Da quale è emerso che il fantasy è il
 genere più popolare con 18%, seguito da thriller che ha quasi il 17% di popolarità.
 
-Poi abbiamo creato un grafico a barre orizzontali che rispondesse alla domanda di quali sono i libri più popolari. 
-E c è la classifica dei dieci libri presi più in prestito dal piu popolare n alto al meno popolare.
+2° GRAFICO: 
+Dopo aver analizzato i generi più richiesti, siamo passati ai singoli libri. Questo grafico mostra i dieci titoli con il maggior numero di prestiti: 
+più la barra è lunga, più il libro è stato richiesto.  Questa analisi permette di individuare i titoli più richiesti e può aiutare la biblioteca a valutare 
+l’acquisto di ulteriori copie.
 
-Un grafico a barre verticali che rappresentasse il numero di prestiti per mese. Quindi quali sono i periodi più attivi per la 
-biblioteca in termini di mesi.
+3° GRAFICO: 
+Abbiamo poi analizzato come si distribuiscono i libri in base al mese dell’ultimo prestito registrato. 
+Il valore più alto si osserva a luglio 2024, con 160 libri, mentre quello più basso è a febbraio 2025. 
+Questo ci descrive la distribuzione delle date dell’ultimo prestito presenti nel catalogo. 
 
-Poi abbiamo creato uno scatterplot interattivo, dove ogni punto rappresenta un singolo libro, attraverso un filtro possiamo filtrare
-per sezione e vedere la correlazione tra il numero dei prestiti e il voto. C è una forte correlazione tra i libri più popolari e quelli con un 
-voto più alto
 
-E infine per ultimo abbiamo creato un grafico a barre orizzontali interattivo che rappresenta la media dei libri presi in prestito 
-per sezione
+4° GRAFICO: 
+Con questo grafico abbiamo esplorato il rapporto tra valutazione e numero di prestiti. Ogni punto rappresenta un libro: 
+sull’asse orizzontale troviamo la valutazione media, su quello verticale il numero di prestiti, mentre il colore identifica la sezione. 
+I libri più prestati hanno valutazioni alte, ma vediamo anche molti libri ben valutati con pochi prestiti. 
+Quindi una valutazione elevata, da sola, non basta a spiegare quanto un libro venga richiesto.
+
+5° GRAFICO: 
+Infine, abbiamo confrontato le sezioni attraverso la media dei prestiti per libro, dividendo il totale dei prestiti di ciascuna sezione per il numero di libri che contiene. 
+Young Adult presenta la media più alta, con circa 220 prestiti per libro, seguita da Non-Fiction con 133 e Fiction con 48. 
+
 
 ---------------------------------------------------------------------------
 
