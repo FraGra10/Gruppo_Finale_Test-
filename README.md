@@ -26,10 +26,10 @@
 2. [Architettura del Sistema](#-architettura-del-sistema)
 3. [Moduli e Funzionalità](#-moduli-e-funzionalità)
    - [Modulo 1: Programmazione ad Oggetti (OOP)](#1-modulo-oop-biblioteca_ooppy)
-   - [Modulo 2: Analisi Esplorativa dei Dati (EDA)](#2-modulo-analisi-dati-analisibibliotecadfpy)
+   - [Modulo 2: Analisi Esplorativa dei Dati (EDA)](#2-modulo-analisi-dati-analisipy)
    - [Modulo 3: Machine Learning & Sistemi Predittivi](#3-modulo-machine-learning-mlbibliotecapy)
 4. [Risultati Sperimentali e Grafici](#-risultati-sperimentali-e-grafici)
-5. [Installazione ed Esecuzione](#-installazione-ed-esecuzione)
+5. [Installazione ed Esecuzione](#--installazione-ed-esecuzione)
 
 ---
 
