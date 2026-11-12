@@ -14,8 +14,8 @@
 | :--- | :--- | :---: |
 | **Alessandro Moceri** | Architettura e struttura Grafica | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alessandro-moceri-40950122b/) |
 | **Alessia Mori** | Analisi Dati & Visualizzazione | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alessia-mori-/) |
-| **Davide Fioretti** | Machine Learning & Sistemi Predittivi & Menu| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/davide-fioretti-4724892b3/) |
-| **Francesco Grasso** | Programmazione ad Oggetti (OOP), | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francesco-grasso-36027437b/) |
+| **Davide Fioretti** | Machine Learning, Sistemi Predittivi & Menu| [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/davide-fioretti-4724892b3/) |
+| **Francesco Grasso** | Programmazione ad Oggetti (OOP) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francesco-grasso-36027437b/) |
 
 </div>
 
