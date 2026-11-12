@@ -68,6 +68,7 @@ Implementa i principi cardine della Programmazione Orientata agli Oggetti:
 
 <a id="modulo-eda"></a>
 ### 2. Modulo Analisi Dati (`analisi.py`)
+* **Pulizia dei dati:** Esplorazione attraverso metodi di Pandas (come il `".info(), .describe(), .head()"`)
 * **Data Cleaning:** Uniformazione delle categorie (es. `"Young Adult (YA)"` $\rightarrow$ `"Young Adult"`), rimozione dei duplicati e gestione dei valori mancanti (portando il dataset da 2.090 a 1.624 record puliti).
 * **Visualizzazione:**
   * *Matplotlib:* Grafico a torta dei Top 10 generi, barre orizzontali dei 10 libri più prestati e distribuzione temporale dei prestiti.
