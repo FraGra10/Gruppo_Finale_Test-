@@ -28,6 +28,7 @@
    - [Modulo 1: Programmazione ad Oggetti (OOP)](#1-modulo-oop-biblioteca_ooppy)
    - [Modulo 2: Analisi Esplorativa dei Dati (EDA)](#2-modulo-analisi-dati-analisibibliotecadfpy)
    - [Modulo 3: Machine Learning & Sistemi Predittivi](#3-modulo-machine-learning-mlbibliotecapy)
+
 4. [Risultati Sperimentali e Grafici](#-risultati-sperimentali-e-grafici)
 5. [Installazione ed Esecuzione](#-installazione-ed-esecuzione)
 6. [Struttura della Repository](#-struttura-della-repository)
@@ -116,6 +117,36 @@ Valutazione effettuata sul Test Set (20% del dataset) tramite **MAE (Errore Medi
 | **Decision Tree Regressor** | **`9.28 prestiti`** | **Miglior modello** (coglie relazioni non lineari) |
 
 ---
+
+
+### 🖥️ Flusso di Navigazione del Menu (`menu.py`)
+
+```mermaid
+flowchart LR
+    MAIN["🏠 Menu Principale (menu.py)"]
+    
+    MAIN -->|1| OOP["📘 Modulo 1: OOP"]
+    MAIN -->|2| EDA["📊 Modulo 2: Analisi Dati"]
+    MAIN -->|3| ML["🤖 Modulo 3: Machine Learning"]
+    MAIN -->|0| EXIT["🚪 Uscita"]
+
+    OOP --> O1["1. Cerca posizione scaffale"]
+    OOP --> O2["2. Prendi in prestito"]
+    OOP --> O3["3. Restituisci libro + costo"]
+    OOP --> O4["4-6. Ricerca Sezione/Autore/Genere"]
+    OOP --> O5["7. Top 100 Rating"]
+    OOP --> O6["8. Valore totale catalogo"]
+
+    EDA --> E1["1. Esplorazione DataFrame"]
+    EDA --> E2["2. Pulizia dataset"]
+    EDA --> E3["3-5. Grafici Matplotlib"]
+    EDA --> E4["6-7. Grafici Interattivi Plotly"]
+
+    ML --> M1["1. Clustering K-Means & PCA"]
+    ML --> M2["2. Confronto Regressione"]
+    ML --> M3["3. Previsione nuovo libro"]
+    ML --> M4["4. Raccomandazione (Cosine)"]
+```
 
 <a id="installazione"></a>
 ## ⚙️ Installazione ed Esecuzione
