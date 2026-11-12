@@ -8,7 +8,14 @@
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine_Learning-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-Interactive_Charts-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
 
-*Progetto Finale realizzato dal gruppo **I BIBLIOTECARI** — Alessandro Moceri, Alessia Mori, Davide Fioretti, Francesco Grasso*
+## 👥 Il Team — I Bibliotecari
+
+| Membro del Team | Ruolo nel Progetto | Contatto |
+| :--- | :--- | :---: |
+| **Alessandro Moceri** | Programmazione ad Oggetti (OOP) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/LINK-ALESSANDRO/) |
+| **Alessia Mori** | Analisi Dati & Visualizzazione (EDA) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/LINK-ALESSIA/) |
+| **Davide Fioretti** | Machine Learning & Sistemi Predittivi | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/LINK-DAVIDE/) |
+| **Francesco Grasso** | Architettura, Integrazione & Menu CLI | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francesco-grasso-36027437b/) |
 
 </div>
 
